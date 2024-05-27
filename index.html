@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가족 기념일 관리</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #anniversaryList {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        li {
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+        }
+        #passwordSection {
+            display: block;
+        }
+        #mainContent {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            li {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>가족 기념일 관리</h1>
+
+    <div id="passwordSection">
+        <form id="passwordForm">
+            <label for="password">반여동 집 주소는 어떻게 되는지 4자리로 넣어줘:</label>
+            <input type="password" id="password" required>
+            <button type="submit">확인</button>
+        </form>
+    </div>
+
+    <div id="mainContent">
+        <ul id="anniversaryList">
+            <!-- 여기서 직접 기념일을 추가하세요 -->
+            <li>홍길동 - 2024-05-27</li>
+            <li>김철수 - 2024-06-15</li>
+            <li>박영희 - 2024-07-22</li>
+        </ul>
+    </div>
+
+    <script>
+        const correctPassword = "1234"; // 실제 주소의 4자리 숫자로 변경하세요
+
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+
+            if (password === correctPassword) {
+                document.getElementById('passwordSection').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            } else {
+                alert('비밀번호가 틀렸습니다. 다시 시도해주세요.');
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
